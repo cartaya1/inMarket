@@ -1,0 +1,67 @@
+{{!-- Main Layout --}}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>inMarket</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</head>
+
+{{!-- Nav Bar shows Login if logged out and Logout if logged in --}}
+{{#if loggedIn}}
+<nav>
+  <div class="nav-wrapper">
+    <a href="/" class="brand-logo">Homepage</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a href="/dashboard" class="">Dashboard</a></li>
+      <li><button href="#" id="logout" class="button">logout</button></li>
+    </ul>
+  </div>
+</nav>
+{{else}}
+<nav>
+   <div class="nav-wrapper">
+     <a href="/" class="brand-logo">Homepage</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a href="/dashboard" class="">Dashboard</a></li>
+       <li><a href="/login" class="button">Login</a></li>
+    </ul>
+  </div>
+</nav>
+{{/if}}
+
+{{!-- Title --}}
+<div class="wrapper">
+  {{{ body }}}
+
+  {{!-- Footer --}}
+  <footer class="footer rows pb-2">
+    <div class="row-is-full content has-text-centered">
+      <p>
+        <a href="/">Homepage</a>{{#if loggedIn}} |
+        <a href="/dashboard/">Dashboard</a> |
+        {{else}}
+        | <a href="/login/">Login</a>
+        {{/if}}
+      </p>
+    </div>
+
+    {{!-- Github Link --}}
+    <div class="row-is-full content has-text-centered">
+      <p>
+        <strong>inMarket</strong> by <a href="https://github.com/RLAQUEA/project-2">Binary-Beasts</a> | source code:
+        <a href="https://github.com/RLAQUEA/project-2"><i class="fab fa-github"></i></a> 
+      </p>
+    </div>
+  </footer>
+</div>
+
+{{!-- Scripts --}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="/js/logout.js"></script>
+</body>
+</html>
